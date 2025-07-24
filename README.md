@@ -2,9 +2,13 @@ Pneumonia Detection from Chest X-Ray Images
 
 
 🧩 1. Importing Libraries
+
 The code starts by importing important libraries like:
+
 TensorFlow/Keras: for building and training the neural network.
+
 OpenCV, NumPy, Matplotlib: for image handling and visualization.
+
 Scikit-learn: for splitting data and evaluating the model.
 
 
