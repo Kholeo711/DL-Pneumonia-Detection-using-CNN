@@ -1,81 +1,70 @@
-Pneumonia Detection from Chest X-Ray Images
+# 🩺 Pneumonia Detection from Chest X-Ray Images
 
+This project builds a deep learning model to classify chest X-ray images as **Pneumonia** or **Normal** using Convolutional Neural Networks (CNNs) with TensorFlow/Keras.
 
+---
 
-🧩 1. Importing Libraries
+## 🧩 1. Importing Libraries
 
-The code starts by importing important libraries like:
+Essential libraries used:
+- **TensorFlow/Keras** for building/training the model  
+- **OpenCV, NumPy, Matplotlib** for image processing and visualization  
+- **Scikit-learn** for data splitting and evaluation  
 
-TensorFlow/Keras: for building and training the neural network.
+---
 
-OpenCV, NumPy, Matplotlib: for image handling and visualization.
+## 🗂️ 2. Data Loading and Preprocessing
 
-Scikit-learn: for splitting data and evaluating the model.
+- Function `get_training_data()`:
+  - Loads `.jpeg` images from `PNEUMONIA` and `NORMAL` folders
+  - Resizes them to **150×150**
+  - Labels: `0 = NORMAL`, `1 = PNEUMONIA`
 
+---
 
+## 📦 3. Image Normalization
 
-🗂️ 2. Data Loading and Preprocessing
+All images are scaled by dividing pixel values by **255** to normalize input between **0 and 1**.
 
-A function named get_training_data():
+---
 
-Loads .jpeg images from two folders: PNEUMONIA and NORMAL.
+## 🧪 4. Train-Test Split
 
-Resizes each image to 150x150.
+Uses `train_test_split()` to divide the dataset into **training** and **validation** sets.
 
-Labels each image (0 for NORMAL, 1 for PNEUMONIA).
+---
 
+## 🧠 5. CNN Model Architecture
 
+Model built using Keras with layers:
+- `Conv2D` for feature extraction  
+- `MaxPooling2D` to downsample  
+- `Dropout` for regularization  
+- `BatchNormalization` for faster convergence  
+- `Flatten` + `Dense` for final classification  
 
-📦 3. Image Normalization
+---
 
-Images are normalized by dividing pixel values by 255 to scale them between 0 and 1 — a standard practice for faster and stable training.
+## 🛑 6. Callbacks
 
+Includes:
+- `EarlyStopping`: Halts training on stagnation  
+- `ModelCheckpoint`: Saves best model  
+- `ReduceLROnPlateau`: Decreases LR on accuracy plateau  
 
+---
 
-🧪 4. Train-Test Split
+## 🏋️ 7. Training the Model
 
-Data is split into training and validation sets using train_test_split() to evaluate the model’s generalization.
+Trained using `.fit()` with validation data monitoring and active callbacks.
 
+---
 
+## 📊 8. Evaluation
 
-🧠 5. CNN Model Architecture
+- Predictions made on test set  
+- Evaluated with **Confusion Matrix** & **Classification Report** (Accuracy, Precision, Recall)
 
-The model is built using Keras:
+---
 
-Conv2D layers to extract image features.
-
-MaxPooling2D layers to reduce spatial dimensions.
-
-Dropout to prevent overfitting.
-
-BatchNormalization to stabilize and speed up training.
-
-Flatten to convert 2D data to 1D.
-
-Dense layers for classification.
-
-
-
-🛑 6. Callbacks
-
-EarlyStopping: Stops training if the model stops improving.
-
-ModelCheckpoint: Saves the best-performing model during training.
-
-ReduceLROnPlateau: Lowers the learning rate when accuracy plateaus.
-
-
-
-🏋️ 7. Training the Model
-
-The model is trained using .fit() with training and validation data.
-
-
-
-📊 8. Evaluation
-
-After training:
-
-Predictions are made on test data.
-
-A confusion matrix and classification report show metrics like accuracy, precision, and recall.
+> 🧠 A practical application of CNNs for real-world medical diagnosis through deep learning.
